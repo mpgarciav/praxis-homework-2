@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 echo "Hello world!"
 
-
 # Install git
 sudo yum install git -y
 
@@ -17,6 +16,7 @@ echo "tar succesfull"
 sudo mv go /usr/local
 # Set go path
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
+# Set port
 echo "export PORT=4001" >> /etc/profile.d/sh.local
 
 echo "path export succesfull"
@@ -29,6 +29,8 @@ source ~/.profile
 curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
 # Install Node.js and npm
 sudo yum install nodejs -y
+
+# Check version
 node --version
 npm --version
 
@@ -56,6 +58,7 @@ echo "Moved the app to the shared folder"
 cd ..
 cd spa
 
+# Set the value of the environment variable
 sudo echo 'VUE_APP_API_ENDPOINT="VUE_APP_API_ENDPOINT="http://10.0.0.8:4001/api"' >> .env.production.local
 
 # Install the dependencies of the project

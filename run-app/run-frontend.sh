@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 echo "Hello from frontend!"
 
+# Go to the directory and untar the dist.tar.gz file
 cd /shared
 tar -xvf dist.tar.gz
 
+# Install nginx
 sudo yum install epel-release -y
 sudo yum install nginx -y
 
+# Start the service
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
+# Change the default configuration file
 cat <<-'change' > /etc/nginx/nginx.conf
 user  nginx;
 worker_processes  1;
@@ -42,5 +46,8 @@ http {
   }
 }
 change
+
 echo "Everything ok"
+
+# Reload the service
 sudo systemctl reload nginx
