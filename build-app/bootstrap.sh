@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 echo "Hello world!"
 
+
 # Install git
 sudo yum install git -y
 
@@ -16,6 +17,8 @@ echo "tar succesfull"
 sudo mv go /usr/local
 # Set go path
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
+echo "export PORT=4001" >> /etc/profile.d/sh.local
+
 echo "path export succesfull"
 # Take changes into account
 source ~/.profile
@@ -41,7 +44,7 @@ git clone https://github.com/jdmendozaa/vuego-demoapp.git
 # Go to the directory in which the .go file is
 cd vuego-demoapp/server
 # Build the app
-go build
+/usr/local/go/bin/go build
 echo "Build the go app"
 # Move it to the shared folder
 cp vuego-demoapp /shared
@@ -52,6 +55,11 @@ echo "Moved the app to the shared folder"
 # Go to the directory
 cd ..
 cd spa
+
+
+
+
+sudo echo 'VUE_APP_API_ENDPOINT="http://localhost:4001/10.0.0.8/api"' >> .env.production.local
 
 # Install the dependencies of the project
 sudo npm install
