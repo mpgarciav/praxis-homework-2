@@ -9,7 +9,9 @@ sudo yum install nginx -y
 
 sudo systemctl start nginx
 sudo systemctl enable nginx
-echo "user  nginx;
+
+cat <<-'change' > /etc/nginx/nginx.conf
+user  nginx;
 worker_processes  1;
 error_log  /var/log/nginx/error.log warn;
 pid        /var/run/nginx.pid;
@@ -38,6 +40,7 @@ http {
       root   /usr/share/nginx/html;
     }
   }
-}" > /etc/nginx/nginx.conf
+}
+change
 echo "Everything ok"
 sudo systemctl reload nginx

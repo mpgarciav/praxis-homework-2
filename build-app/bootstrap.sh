@@ -56,10 +56,7 @@ echo "Moved the app to the shared folder"
 cd ..
 cd spa
 
-
-
-
-sudo echo 'VUE_APP_API_ENDPOINT="http://localhost:4001/10.0.0.8/api"' >> .env.production.local
+sudo echo 'VUE_APP_API_ENDPOINT="VUE_APP_API_ENDPOINT="http://10.0.0.8:4001/api"' >> .env.production.local
 
 # Install the dependencies of the project
 sudo npm install
