@@ -59,7 +59,7 @@ cd ..
 cd spa
 
 # Set the value of the environment variable
-sudo echo 'VUE_APP_API_ENDPOINT="VUE_APP_API_ENDPOINT="http://10.0.0.8:4001/api"' >> .env.production.local
+sudo echo 'VUE_APP_API_ENDPOINT="http://10.0.0.8:4001/api"' >> .env.production.local
 
 # Install the dependencies of the project
 sudo npm install
